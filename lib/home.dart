@@ -13,8 +13,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final controller = TextEditingController();
-  String languageFrom = 'English';
-  String languageTo = 'Hindi';
+  
   String textTobeTranslated = '';
   String translatedText = '';
   @override
@@ -46,23 +45,25 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(
                     height: 10,
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       CustomButton(
-                        title: languageFrom,
+                        // title: APIs.languageFrom,
+                        str: 'From',
                       ),
-                      const SizedBox(
+                      SizedBox(
                         width: 5,
                       ),
-                      const Icon(Icons.change_circle),
-                      const SizedBox(
+                      Icon(Icons.change_circle),
+                      SizedBox(
                         width: 5,
                       ),
                       CustomButton(
-                        title: languageTo,
+                        // title: APIs.languageTo,
+                        str: 'To',
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 10,
                       ),
                     ],
@@ -71,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                     height: 10,
                   ),
                   Text(
-                    'Translate From ($languageFrom)',
+                    'Translate From (${APIs.languageFrom})',
                   ),
                   const SizedBox(
                     height: 10,
@@ -94,8 +95,9 @@ class _HomePageState extends State<HomePage> {
                               APIs.translations.translatedText == null
                                   ? ''
                                   : APIs.translations.translatedText!;
-                          log(translatedText);
+                          
                         });
+                        log(translatedText);
                       },
                       decoration: const InputDecoration(
                           hintText: 'Write something to translate',
@@ -109,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                     height: 10,
                   ),
                   Text(
-                    'Translate To ($languageTo)',
+                    'Translate To (${APIs.languageTo})',
                   ),
                   const SizedBox(
                     height: 10,
